@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className="w-full max-w-lg p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h1 className="text-4xl font-extrabold text-center text-green-900 mb-2">Ahorros para la Selva Negra</h1>
         <p className="text-center text-green-800 italic">
-          ¡Cada granito de arena cuenta! Registra aquí tu aporte para nuestro increíble viaje a la Selva Negra, un paraíso natural en Nicaragua con bosques exuberantes, cascadas y cultura viva.
+          Hay que recoger porque sino no iremos
         </p>
         <img 
           src="https://i.pinimg.com/originals/e9/cc/22/e9cc220650296d9418e93fe279af2c70.jpg" 
