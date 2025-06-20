@@ -32,7 +32,7 @@ export default async function ParticipantsList() {
       
       <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-lg" role="alert">
         <p className="font-bold">Total Recaudado</p>
-        <p className="text-2xl">{new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(totalAmount)}</p>
+        <p className="text-2xl">{new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'NIO' }).format(totalAmount)}</p>
       </div>
 
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
@@ -58,7 +58,7 @@ export default async function ParticipantsList() {
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <p className="text-gray-900 whitespace-no-wrap">
-                    {new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(p.amount)}
+                    {new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'NIO' }).format(p.amount)}
                   </p>
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
