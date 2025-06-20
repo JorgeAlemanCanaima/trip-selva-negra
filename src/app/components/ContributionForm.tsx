@@ -4,6 +4,12 @@ import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
+const PARTICIPANTS = [
+  { value: '', label: 'Selecciona tu nombre' },
+  { value: 'Hani', label: 'Hani' },
+  { value: 'Alex', label: 'Alex' },
+];
+
 export default function ContributionForm() {
   const [name, setName] = useState('')
   const [amount, setAmount] = useState('')
@@ -20,7 +26,7 @@ export default function ContributionForm() {
     setError('')
 
     if (!name || !amount) {
-      setError('Por favor, ingresa tu nombre y la cantidad.')
+      setError('Por favor, selecciona tu nombre y la cantidad.')
       setIsLoading(false)
       return
     }
@@ -52,15 +58,19 @@ export default function ContributionForm() {
         <label htmlFor="name" className="text-sm font-medium text-gray-700">
           Tu nombre
         </label>
-        <input
+        <select
           id="name"
-          type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           required
-        />
+        >
+          {PARTICIPANTS.map((p) => (
+            <option key={p.value} value={p.value} disabled={p.value === ''}>
+              {p.label}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <label htmlFor="amount" className="text-sm font-medium text-gray-700">
@@ -71,7 +81,7 @@ export default function ContributionForm() {
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
           placeholder="Ej: 50"
           required
           step="0.01"
