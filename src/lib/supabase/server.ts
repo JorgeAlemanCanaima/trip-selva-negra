@@ -1,8 +1,9 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { cookies } from 'next/headers'
+import type { ReadonlyRequestCookies } from 'next/dist/compiled/@edge-runtime/cookies'
 
-export const createClient = async () => {
-  const cookieStore = cookies()
+export const createClient = () => {
+  const cookieStore = cookies() as unknown as ReadonlyRequestCookies;
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
