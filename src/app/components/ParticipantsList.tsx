@@ -30,9 +30,15 @@ export default async function ParticipantsList() {
     <div className="w-full max-w-4xl mt-12">
       <h2 className="text-2xl font-bold text-center text-gray-900 mb-6">Lista de Aportes</h2>
       
-      <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-lg" role="alert">
+      <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-2 rounded-lg" role="alert">
         <p className="font-bold">Total Recaudado</p>
         <p className="text-2xl">{new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'NIO' }).format(totalAmount)}</p>
+        <p className="mt-2">Meta: <span className="font-semibold">C$7,230.00</span></p>
+        <div className="w-full bg-green-200 rounded-full h-4 mt-2">
+          <div className="bg-green-500 h-4 rounded-full" style={{ width: `${Math.min((totalAmount / 7230) * 100, 100)}%` }}></div>
+        </div>
+        <span className="text-green-700 text-sm">{((totalAmount / 7230) * 100).toFixed(2)}% recaudado</span>
+        <p className="text-xs text-gray-600 mt-1">Meta a cumplir al <span className="font-semibold">1ro de octubre</span></p>
       </div>
 
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
